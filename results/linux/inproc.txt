@@ -1,0 +1,17 @@
+goos=linux goarch=amd64 cpus=20 go=go1.27.2 load=inproc n=100 start=2026-11-20T16:31:33Z
+end=2026-11-20T16:36:01Z
+huh-v2.0.2       load=inproc kept  92  erased   8 (95% CI   4.1%- 15.0%)  other   0 map[]  erase-seq-after-key 100
+huh-v2.0.10      load=inproc kept  95  erased   5 (95% CI   2.2%- 11.2%)  other   0 map[]  erase-seq-after-key 100
+huh-v2.1.0       load=inproc kept  95  erased   5 (95% CI   2.2%- 11.2%)  other   0 map[]  erase-seq-after-key 100
+huh-v2.1.1       load=inproc kept  95  erased   5 (95% CI   2.2%- 11.2%)  other   0 map[]  erase-seq-after-key 100
+huh-v2.1.2       load=inproc kept  94  erased   6 (95% CI   2.8%- 12.5%)  other   0 map[]  erase-seq-after-key 100
+mini-int-v2.0.2  load=inproc kept   0  erased   4 (95% CI   1.6%-  9.8%)  other  96 map[partial-3of4:96]  erase-seq-after-key 100  first-view-before-size 100/100
+mini-int-v2.0.10 load=inproc kept   0  erased   7 (95% CI   3.4%- 13.7%)  other  93 map[partial-3of4:93]  erase-seq-after-key 100  first-view-before-size 100/100
+mini-int-v2.1.0  load=inproc kept   0  erased   7 (95% CI   3.4%- 13.7%)  other  93 map[partial-3of4:93]  erase-seq-after-key 100  first-view-before-size 100/100
+mini-int-v2.1.1  load=inproc kept   0  erased  12 (95% CI   7.0%- 19.8%)  other  88 map[partial-3of4:88]  erase-seq-after-key 100  first-view-before-size 100/100
+mini-int-v2.1.2  load=inproc kept   0  erased   7 (95% CI   3.4%- 13.7%)  other  93 map[partial-3of4:93]  erase-seq-after-key 100  first-view-before-size 100/100
+mini-quit-v2.0.2 load=inproc kept   0  erased 100 (95% CI  96.3%-100.0%)  other   0 map[]  erase-seq-after-key 100  first-view-before-size 100/100
+mini-quit-v2.0.10 load=inproc kept   0  erased 100 (95% CI  96.3%-100.0%)  other   0 map[]  erase-seq-after-key 100  first-view-before-size 100/100
+mini-quit-v2.1.0 load=inproc kept   0  erased 100 (95% CI  96.3%-100.0%)  other   0 map[]  erase-seq-after-key 100  first-view-before-size 100/100
+mini-quit-v2.1.1 load=inproc kept   0  erased 100 (95% CI  96.3%-100.0%)  other   0 map[]  erase-seq-after-key 100  first-view-before-size 100/100
+mini-quit-v2.1.2 load=inproc kept   0  erased 100 (95% CI  96.3%-100.0%)  other   0 map[]  erase-seq-after-key 100  first-view-before-size 100/100

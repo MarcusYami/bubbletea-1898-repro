@@ -1,0 +1,29 @@
+date:   2026-11-20T16:31:31Z
+go:     go version go1.27.2 linux/amd64
+os:     Debian GNU/Linux 13 (trixie), Linux 6.12.113+deb13-amd64 x86_64
+cpu:    Intel(R) Core(TM) i5-14500, 20 logical, 31 GB
+pty:    40x24, Unix pty via charmbracelet/x/xpty v0.1.4, screen via charmbracelet/x/vt v0.1.0
+binaries:
+  drive  
+  huh-v2.0.10  charm.land/bubbles/v2@v2.2.1 charm.land/bubbletea/v2@v2.0.10 charm.land/huh/v2@v2.0.3 
+  huh-v2.0.2  charm.land/bubbles/v2@v2.0.0 charm.land/bubbletea/v2@v2.0.2 charm.land/huh/v2@v2.0.3 
+  huh-v2.1.0  charm.land/bubbles/v2@v2.2.1 charm.land/bubbletea/v2@v2.1.0 charm.land/huh/v2@v2.0.3 
+  huh-v2.1.1  charm.land/bubbles/v2@v2.2.1 charm.land/bubbletea/v2@v2.1.1 charm.land/huh/v2@v2.0.3 
+  huh-v2.1.2  charm.land/bubbles/v2@v2.2.1 charm.land/bubbletea/v2@v2.1.2 charm.land/huh/v2@v2.0.3 
+  mini-int-v2.0.10  charm.land/bubbletea/v2@v2.0.10 
+  mini-int-v2.0.2  charm.land/bubbletea/v2@v2.0.2 
+  mini-int-v2.1.0  charm.land/bubbletea/v2@v2.1.0 
+  mini-int-v2.1.1  charm.land/bubbletea/v2@v2.1.1 
+  mini-int-v2.1.2  charm.land/bubbletea/v2@v2.1.2 
+  mini-quit-v2.0.10  charm.land/bubbletea/v2@v2.0.10 
+  mini-quit-v2.0.2  charm.land/bubbletea/v2@v2.0.2 
+  mini-quit-v2.1.0  charm.land/bubbletea/v2@v2.1.0 
+  mini-quit-v2.1.1  charm.land/bubbletea/v2@v2.1.1 
+  mini-quit-v2.1.2  charm.land/bubbletea/v2@v2.1.2 
+== load=inproc  loadavg before: 51.54 62.15 59.34
+== load=inproc  loadavg after:  20.75 37.66 49.68
+== load=ext  loadavg before: 20.75 37.66 49.68
+== load=ext  loadavg after:  177.13 89.84 67.22
+== load=none  loadavg before: 177.13 89.84 67.22
+== load=none  loadavg after:  92.37 78.97 64.51
+note:   a media transcoder unrelated to the test (about 1.2 to 1.4 cores) was running on the host.

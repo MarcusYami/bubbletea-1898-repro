@@ -1,0 +1,11 @@
+goos=linux goarch=amd64 cpus=20 go=go1.27.2 load=none n=100 start=2026-11-20T16:37:55Z
+end=2026-11-20T16:38:34Z
+huh-v2.0.2       load=none   kept  96  erased   4 (95% CI   1.6%-  9.8%)  other   0 map[]  erase-seq-after-key 100
+huh-v2.1.1       load=none   kept  97  erased   3 (95% CI   1.0%-  8.5%)  other   0 map[]  erase-seq-after-key 100
+huh-v2.1.2       load=none   kept  94  erased   6 (95% CI   2.8%- 12.5%)  other   0 map[]  erase-seq-after-key 100
+mini-int-v2.0.2  load=none   kept   0  erased   0 (95% CI   0.0%-  3.7%)  other 100 map[partial-3of4:100]  erase-seq-after-key 100  first-view-before-size 100/100
+mini-int-v2.1.1  load=none   kept   0  erased   0 (95% CI   0.0%-  3.7%)  other 100 map[partial-3of4:100]  erase-seq-after-key 100  first-view-before-size 100/100
+mini-int-v2.1.2  load=none   kept   0  erased   0 (95% CI   0.0%-  3.7%)  other 100 map[partial-3of4:100]  erase-seq-after-key 100  first-view-before-size 100/100
+mini-quit-v2.0.2 load=none   kept   0  erased 100 (95% CI  96.3%-100.0%)  other   0 map[]  erase-seq-after-key 100  first-view-before-size 100/100
+mini-quit-v2.1.1 load=none   kept   0  erased 100 (95% CI  96.3%-100.0%)  other   0 map[]  erase-seq-after-key 100  first-view-before-size 100/100
+mini-quit-v2.1.2 load=none   kept   0  erased 100 (95% CI  96.3%-100.0%)  other   0 map[]  erase-seq-after-key 100  first-view-before-size 100/100

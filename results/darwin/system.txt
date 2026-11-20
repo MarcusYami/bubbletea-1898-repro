@@ -1,0 +1,16 @@
+date:   2026-11-20T16:27:40Z
+go:     go version go1.27.3 darwin/arm64
+os:     macOS 27.2 (26B123), Darwin 27.2.0 arm64
+== load=inproc  loadavg before: 
+== load=inproc  loadavg after:  
+== load=ext  loadavg before: 
+== load=ext  loadavg after:  
+== load=none  loadavg before: 
+== load=none  loadavg after:  
+
+cpu:    Apple M5 Pro, 15 logical (5 performance + 10 efficiency), 64 GB
+pty:    40x24, Unix pty via charmbracelet/x/xpty v0.1.4, screen via charmbracelet/x/vt v0.1.0
+note:   run.sh's sysctl was off PATH on this host, so the cpu line and the per-line loadavg are missing from
+        system.txt; they are given here. The machine was shared: 1-min loadavg was roughly 25-45 from other
+        work during all three lines, including load=none.
+note:   ext load measured at about 1300% CPU for the 10 spinner processes (of 1500% possible), sampled 4 times.
