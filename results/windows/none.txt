@@ -1,0 +1,11 @@
+goos=windows goarch=amd64 cpus=12 go=go1.27.4 load=none n=100 start=2026-11-20T18:00:52Z
+end=2026-11-20T18:01:46Z
+huh-v2.0.2       load=none   kept 100  erased   0 (95% CI   0.0%-  3.7%)  other   0 map[]  erase-seq-after-key 100
+huh-v2.1.1       load=none   kept 100  erased   0 (95% CI   0.0%-  3.7%)  other   0 map[]  erase-seq-after-key 100
+huh-v2.1.2       load=none   kept 100  erased   0 (95% CI   0.0%-  3.7%)  other   0 map[]  erase-seq-after-key 100
+mini-int-v2.0.2  load=none   kept   0  erased   0 (95% CI   0.0%-  3.7%)  other 100 map[partial-3of4:100]  erase-seq-after-key 100  first-view-before-size 100/100
+mini-int-v2.1.1  load=none   kept   0  erased   0 (95% CI   0.0%-  3.7%)  other 100 map[partial-3of4:100]  erase-seq-after-key 100  first-view-before-size 100/100
+mini-int-v2.1.2  load=none   kept   0  erased   0 (95% CI   0.0%-  3.7%)  other 100 map[partial-3of4:100]  erase-seq-after-key 100  first-view-before-size 100/100
+mini-quit-v2.0.2 load=none   kept   0  erased 100 (95% CI  96.3%-100.0%)  other   0 map[]  erase-seq-after-key 100  first-view-before-size 100/100
+mini-quit-v2.1.1 load=none   kept   0  erased 100 (95% CI  96.3%-100.0%)  other   0 map[]  erase-seq-after-key 100  first-view-before-size 100/100
+mini-quit-v2.1.2 load=none   kept   0  erased 100 (95% CI  96.3%-100.0%)  other   0 map[]  erase-seq-after-key 100  first-view-before-size 100/100

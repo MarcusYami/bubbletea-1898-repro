@@ -1,0 +1,27 @@
+date:   2026-11-20T18:00:47Z
+go:     go version go1.27.4 windows/amd64
+os:     Microsoft Windows [Version 10.0.26200.9457]
+cpu:    AMD Ryzen 5 9600X 6-Core Processor, 12 logical
+pwsh:   5.1.26100.9444
+pty:    40x24, ConPTY via charmbracelet/x/xpty v0.1.4, screen via charmbracelet/x/vt v0.1.0
+binaries:
+  drive.exe  
+  huh-v2.0.10.exe  charm.land/bubbles/v2@v2.2.1 charm.land/bubbletea/v2@v2.0.10 charm.land/huh/v2@v2.0.3 
+  huh-v2.0.2.exe  charm.land/bubbles/v2@v2.0.0 charm.land/bubbletea/v2@v2.0.2 charm.land/huh/v2@v2.0.3 
+  huh-v2.1.0.exe  charm.land/bubbles/v2@v2.2.1 charm.land/bubbletea/v2@v2.1.0 charm.land/huh/v2@v2.0.3 
+  huh-v2.1.1.exe  charm.land/bubbles/v2@v2.2.1 charm.land/bubbletea/v2@v2.1.1 charm.land/huh/v2@v2.0.3 
+  huh-v2.1.2.exe  charm.land/bubbles/v2@v2.2.1 charm.land/bubbletea/v2@v2.1.2 charm.land/huh/v2@v2.0.3 
+  mini-int-v2.0.10.exe  charm.land/bubbletea/v2@v2.0.10 
+  mini-int-v2.0.2.exe  charm.land/bubbletea/v2@v2.0.2 
+  mini-int-v2.1.0.exe  charm.land/bubbletea/v2@v2.1.0 
+  mini-int-v2.1.1.exe  charm.land/bubbletea/v2@v2.1.1 
+  mini-int-v2.1.2.exe  charm.land/bubbletea/v2@v2.1.2 
+  mini-quit-v2.0.10.exe  charm.land/bubbletea/v2@v2.0.10 
+  mini-quit-v2.0.2.exe  charm.land/bubbletea/v2@v2.0.2 
+  mini-quit-v2.1.0.exe  charm.land/bubbletea/v2@v2.1.0 
+  mini-quit-v2.1.1.exe  charm.land/bubbletea/v2@v2.1.1 
+  mini-quit-v2.1.2.exe  charm.land/bubbletea/v2@v2.1.2 
+note:   run.sh ran once per load line here (inproc, then ext, then none), so this header is from the last
+        run; the start time of each line is the first line of its .txt. Windows has no load average.
+note:   ext was stopped at about run 38 of 100 per binary (each run took about 7 s under that load); see ext.txt.
+note:   pty log times were recorded in local time and converted to UTC for publishing.

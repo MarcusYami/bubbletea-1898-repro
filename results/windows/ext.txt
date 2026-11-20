@@ -1,0 +1,13 @@
+goos=windows goarch=amd64 cpus=12 go=go1.27.4 load=ext n=100 start=2026-11-20T17:18:00Z
+
+stopped early: each run took about 7 s under this load on this PC, so the line was stopped at about run 38 of 100
+per binary. The driver writes no summary when stopped; the lines below are computed from out-ext/runs.csv.
+huh-v2.0.2       load=ext    n=39  kept  18  erased  21 (95% CI  38.6%- 68.4%)  other 0
+huh-v2.1.1       load=ext    n=39  kept  26  erased  13 (95% CI  20.6%- 49.0%)  other 0
+huh-v2.1.2       load=ext    n=39  kept  24  erased  15 (95% CI  24.9%- 54.1%)  other 0
+mini-int-v2.0.2  load=ext    n=39  kept   0  erased   3 (95% CI   2.7%- 20.3%)  other 36
+mini-int-v2.1.1  load=ext    n=39  kept   0  erased   4 (95% CI   4.1%- 23.6%)  other 35
+mini-int-v2.1.2  load=ext    n=38  kept   0  erased   7 (95% CI   9.2%- 33.4%)  other 31
+mini-quit-v2.0.2 load=ext    n=38  kept   0  erased  38 (95% CI  90.8%-100.0%)  other 0
+mini-quit-v2.1.1 load=ext    n=38  kept   0  erased  38 (95% CI  90.8%-100.0%)  other 0
+mini-quit-v2.1.2 load=ext    n=38  kept   0  erased  38 (95% CI  90.8%-100.0%)  other 0

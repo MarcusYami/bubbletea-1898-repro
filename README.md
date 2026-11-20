@@ -5,7 +5,7 @@ A reproduction harness and full results for
 form's menu is sometimes left on screen and sometimes erased.
 
 Public modules only (bubbletea, huh, bubbles, charmbracelet/x/xpty, charmbracelet/x/vt). Go 1.24 or later.
-Runs on macOS, Linux and Windows (Git bash, ConPTY).
+Runs on macOS, Linux and Windows (Git bash, ConPTY). Results from all three are in `results/`.
 
 ## Findings
 
@@ -16,11 +16,14 @@ Runs on macOS, Linux and Windows (Git bash, ConPTY).
    v2.0.3's default `CancelCmd` is) leaves whatever the renderer last flushed. With no added load it kept the
    frame in every run. Under load, the renderer's ticker sometimes flushes the now-empty view before shutdown, and then the menu
    is erased.
-4. **huh shows it** as an erased form in 3 to 15% of runs, depending on OS and load, including on Linux with no
-   added load.
+4. **huh shows it** as an erased form in 3 to 15% of runs on macOS and Linux and 6 to 11% on Windows under
+   in-process load, and in 13 to 21 of 39 runs (about a third to a half) on Windows under heavy external load.
+   With no added load huh kept the menu in every run on macOS and Windows, and lost it in 3 to 6% on Linux.
 5. **The pty logs show the mechanism.** In 21 of the 24 erased huh runs on macOS (v2.1.1 and v2.1.2, in-process
    load), the program's first output after ctrl-c is a cursor-up plus clear (`ESC[5A ESC[J`), the ticker
-   flushing the empty view. That is never the first output in a run that kept the menu.
+   flushing the empty view. That is never the first output in a run that kept the menu. On Linux the same bare
+   flush appears, but reads are chunked differently, so the count is not comparable; on Windows ConPTY repaints
+   the screen itself, so the program's own bytes are not visible in the log.
 6. **"An erase sequence was written" does not tell the two cases apart.** Every run writes `ESC[J` after the key,
    including every run that kept the menu, because shutdown clears the cursor line.
 
@@ -34,43 +37,50 @@ flushes it, so it always erases.
 
 ## Results
 
-100 runs per binary and load. Cells are **menu erased** / **menu kept** counts.
+Counts are **runs in which the menu was erased**, of 100 unless shown. Columns are OS and load
+(in = in-process, ext = external, none = no added load). The ext and none lines ran v2.0.2, v2.1.1 and v2.1.2 only.
 
-For `mini-int`, "kept" means the menu stayed with its last line cleared (`partial-3of4` in the CSV): shutdown's
-`CR ESC[J` clears the cursor line and the error text is printed there. huh's frame ends in a blank line, so the
-same clear leaves all of its menu.
+**huh form** (the issue's repro). Every other run kept the whole menu.
 
-| Program | Version | macOS in-process | macOS external | macOS none | Linux in-process | Linux external | Linux none |
-|---|---|---|---|---|---|---|---|
-| huh | v2.0.2 | 12 / 88 | 0 / 100 | 0 / 100 | 8 / 92 | 12 / 88 | 4 / 96 |
-| huh | v2.0.10 | 12 / 88 | | | 5 / 95 | | |
-| huh | v2.1.0 | 9 / 91 | | | 5 / 95 | | |
-| huh | v2.1.1 | 12 / 88 | 0 / 100 | 0 / 100 | 5 / 95 | 15 / 85 | 3 / 97 |
-| huh | v2.1.2 | 12 / 88 | 0 / 100 | 0 / 100 | 6 / 94 | 8 / 92 | 6 / 94 |
-| mini, `tea.Interrupt` | v2.0.2 | 14 / 86 | 0 / 100 | 0 / 100 | 4 / 96 | 8 / 92 | 0 / 100 |
-| mini, `tea.Interrupt` | v2.0.10 | 17 / 83 | | | 7 / 93 | | |
-| mini, `tea.Interrupt` | v2.1.0 | 12 / 88 | | | 7 / 93 | | |
-| mini, `tea.Interrupt` | v2.1.1 | 8 / 92 | 0 / 100 | 0 / 100 | 12 / 88 | 17 / 83 | 0 / 100 |
-| mini, `tea.Interrupt` | v2.1.2 | 8 / 92 | 0 / 100 | 0 / 100 | 7 / 93 | 11 / 89 | 0 / 100 |
-| mini, `tea.Quit` | all five | 100 / 0 | 100 / 0 | 100 / 0 | 100 / 0 | 100 / 0 | 100 / 0 |
+| Version | macOS in | macOS ext | macOS none | Linux in | Linux ext | Linux none | Windows in | Windows ext | Windows none |
+|---|---|---|---|---|---|---|---|---|---|
+| v2.0.2 | 12 | 0 | 0 | 8 | 12 | 4 | 9 | 21 of 39 | 0 |
+| v2.0.10 | 12 | | | 5 | | | 9 | | |
+| v2.1.0 | 9 | | | 5 | | | 11 | | |
+| v2.1.1 | 12 | 0 | 0 | 5 | 15 | 3 | 8 | 13 of 39 | 0 |
+| v2.1.2 | 12 | 0 | 0 | 6 | 8 | 6 | 6 | 15 of 39 | 0 |
 
-Windows results will be added here when that run finishes.
+**mini, `tea.Interrupt`.** Every other run kept the menu with its last line cleared (`partial-3of4` in the
+CSV): shutdown's `CR ESC[J` clears the cursor line and the error text is printed there. huh's frame ends in a
+blank line, so the same clear leaves all of its menu.
 
-The external and no-load lines ran v2.0.2, v2.1.1 and v2.1.2 only. Wilson 95% intervals for every cell are in
-`results/<os>/<load>.txt`; at 100 runs, 12 erased is 7.0% to 19.8%, and 0 erased is 0% to 3.7%.
+| Version | macOS in | macOS ext | macOS none | Linux in | Linux ext | Linux none | Windows in | Windows ext | Windows none |
+|---|---|---|---|---|---|---|---|---|---|
+| v2.0.2 | 14 | 0 | 0 | 4 | 8 | 0 | 10 | 3 of 39 | 0 |
+| v2.0.10 | 17 | | | 7 | | | 4 | | |
+| v2.1.0 | 12 | | | 7 | | | 5 | | |
+| v2.1.1 | 8 | 0 | 0 | 12 | 17 | 0 | 5 | 4 of 39 | 0 |
+| v2.1.2 | 8 | 0 | 0 | 7 | 11 | 0 | 6 | 7 of 38 | 0 |
+
+**mini, `tea.Quit`.** Erased in every run: 100 of 100 for every version, OS and load (38 of 38 on Windows ext).
+
+Wilson 95% intervals for every cell are in `results/<os>/<load>.txt`. At 100 runs, 12 erased is 7.0% to
+19.8% and 0 erased is 0% to 3.7%. On Windows the ext line was stopped at about run 38 of 100 per binary,
+because each run took about 7 s under that load (10 processes with a busy thread per CPU, so about 120
+busy threads on 12 logical CPUs); its rows are kept and `ext.txt` gives the counts computed from them.
 
 ### Systems
 
-| | macOS | Linux |
-|---|---|---|
-| OS | macOS 27.2 (26B123), arm64 | Debian 13, kernel 6.12, x86_64 |
-| CPU | Apple M5 Pro, 15 logical (5 performance + 10 efficiency) | Intel Core i5-14500, 20 logical |
-| Memory | 64 GB | 31 GB |
-| Go | 1.27.3 | 1.27.2 |
-| Terminal | 40x24 Unix pty, x/vt screen | 40x24 Unix pty, x/vt screen |
-| Other load | Shared machine: 1-min load average about 25 to 45 from other work during every line, "none" included | A media transcoder (about 1.3 cores). 1-min load average 52 before the first line (other work on the host finishing); the readings around each line are in `system.txt` |
+| | macOS | Linux | Windows |
+|---|---|---|---|
+| OS | macOS 27.2 (26B123), arm64 | Debian 13, kernel 6.12, x86_64 | Windows 11, build 10.0.26200.9457, x86_64 |
+| CPU | Apple M5 Pro, 15 logical (5 performance + 10 efficiency) | Intel Core i5-14500, 20 logical | AMD Ryzen 5 9600X, 12 logical |
+| Memory | 64 GB | 31 GB | |
+| Go | 1.27.3 | 1.27.2 | 1.27.4 |
+| Terminal | 40x24 Unix pty, x/vt screen | 40x24 Unix pty, x/vt screen | 40x24 ConPTY, x/vt screen |
+| Other load | Shared machine: 1-min load average about 25 to 45 from other work during every line, "none" included | A media transcoder (about 1.3 cores). 1-min load average 52 before the first line (other work on the host finishing); the readings around each line are in `system.txt` | Not measured (Windows has no load average) |
 
-Full details per run, including every module version in each binary, are in `results/<os>/system.txt`.
+Full details, including every module version in each binary, are in `results/<os>/system.txt`.
 
 ## What the harness does
 
